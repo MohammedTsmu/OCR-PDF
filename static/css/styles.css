@@ -31,3 +31,86 @@ nav {
   background-color: #f8d7da;
   color: #721c24;
 }
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  position: relative;
+  width: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  display: none; /* Hide all slides by default */
+}
+
+.slide.active {
+  display: block; /* Show the active slide */
+}
+
+.slider-controls {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.slider-controls button {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #2e3d50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.slider-controls button:hover {
+  background-color: #1e2c3a;
+}
+
+.collapsible {
+  background-color: #2e3d50;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.collapsible:hover {
+  background-color: #1e2c3a;
+}
+
+.content {
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: none;
+}
+
+.content pre {
+  margin: 0;
+  font-size: 14px;
+  white-space: pre-wrap; /* Wrap text within the pre tag */
+  word-wrap: break-word; /* Break words if necessary */
+  overflow-wrap: break-word; /* Ensure long words break to fit the container */
+}

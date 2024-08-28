@@ -1,8 +1,36 @@
 {% extends "layout.html" %}
 {% block content %}
 <h2>Conversion Results</h2>
-<p>Extracted Text:</p>
-<pre>{{ text }}</pre>
+
+<div class="content-sections">
+    {% for page in pages %}
+    <div class="section">
+        <button class="collapsible">Page {{ loop.index }}</button>
+        <div class="content" style="display: none;">
+            <pre>{{ page }}</pre>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<p><a href="{{ url_for('download_file', filename=text) }}">Download Text File</a></p>
 <p><a href="{{ url_for('download_file', filename=word) }}">Download Word</a></p>
 <p><a href="{{ url_for('download_file', filename=pdf) }}">Download PDF</a></p>
+
+<script>
+    const collapsibles = document.querySelectorAll(".collapsible");
+
+    collapsibles.forEach((collapsible) => {
+        collapsible.addEventListener("click", function () {
+            this.classList.toggle("active");
+            const content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    });
+</script>
+
 {% endblock %}
