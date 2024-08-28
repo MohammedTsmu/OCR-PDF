@@ -5,7 +5,7 @@
 <div class="content-sections">
     {% for page in pages %}
     <div class="section">
-        <button class="collapsible">Page {{ loop.index }}</button>
+        <button class="collapsible"><i class="fas fa-file-alt"></i> Page {{ loop.index }}</button>
         <div class="content" style="display: none;">
             <pre>{{ page }}</pre>
         </div>
@@ -13,9 +13,9 @@
     {% endfor %}
 </div>
 
-<p><a href="{{ url_for('download_file', filename=text) }}">Download Text File</a></p>
-<p><a href="{{ url_for('download_file', filename=word) }}">Download Word</a></p>
-<p><a href="{{ url_for('download_file', filename=pdf) }}">Download PDF</a></p>
+<p><a href="{{ url_for('download_file', filename=text) }}"><i class="fas fa-file-alt"></i> Download Text File</a></p>
+<p><a href="{{ url_for('download_file', filename=word) }}"><i class="fas fa-file-word"></i> Download Word</a></p>
+<p><a href="{{ url_for('download_file', filename=pdf) }}"><i class="fas fa-file-pdf"></i> Download PDF</a></p>
 
 <script>
     const collapsibles = document.querySelectorAll(".collapsible");

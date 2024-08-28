@@ -1,9 +1,22 @@
 {% extends "layout.html" %}
 {% block content %}
-<h2>Upload your PDF</h2>
-<form method="POST" enctype="multipart/form-data">
+<h2>Upload your PDF for Conversion</h2>
+
+<div id="loader" style="display: none;">
+    <div class="spinner"></div>
+    <p>Converting... Please wait.</p>
+</div>
+
+<form method="POST" enctype="multipart/form-data" id="uploadForm">
     {{ form.hidden_tag() }}
     {{ form.pdf.label }} {{ form.pdf() }}
-    {{ form.submit() }}
+    {{ form.submit(class="btn btn-primary") }}
 </form>
+
+<script>
+    document.getElementById('uploadForm').onsubmit = function () {
+        document.getElementById('loader').style.display = 'block';
+    };
+</script>
+
 {% endblock %}

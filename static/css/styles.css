@@ -32,54 +32,39 @@ nav {
   color: #721c24;
 }
 
-.slider-container {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  overflow: hidden;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #fff;
-}
-
-.slider {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  position: relative;
-  width: 100%;
-}
-
-.slide {
-  min-width: 100%;
-  box-sizing: border-box;
-  padding: 20px;
-  display: none; /* Hide all slides by default */
-}
-
-.slide.active {
-  display: block; /* Show the active slide */
-}
-
-.slider-controls {
+/* Loader Styles */
+#loader {
   text-align: center;
-  margin-top: 10px;
+  padding: 50px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
 }
 
-.slider-controls button {
-  padding: 10px 20px;
-  margin: 5px;
-  background-color: #2e3d50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.spinner {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #2e3d50;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+  margin: 0 auto;
 }
 
-.slider-controls button:hover {
-  background-color: #1e2c3a;
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
+/* Collapsible Button Styles */
 .collapsible {
   background-color: #2e3d50;
   color: white;
@@ -110,7 +95,7 @@ nav {
 .content pre {
   margin: 0;
   font-size: 14px;
-  white-space: pre-wrap; /* Wrap text within the pre tag */
-  word-wrap: break-word; /* Break words if necessary */
-  overflow-wrap: break-word; /* Ensure long words break to fit the container */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
