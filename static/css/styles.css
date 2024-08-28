@@ -1,0 +1,33 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 20px;
+}
+
+nav {
+  background-color: #2e3d50;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.container {
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.alert {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
