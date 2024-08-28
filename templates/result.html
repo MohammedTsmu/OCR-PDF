@@ -7,7 +7,8 @@
     <div class="section">
         <button class="collapsible"><i class="fas fa-file-alt"></i> Page {{ loop.index }}</button>
         <div class="content" style="display: none;">
-            <pre>{{ page }}</pre>
+            <pre id="page-content-{{ loop.index }}">{{ page }}</pre>
+            <button class="copy-btn" data-page="{{ loop.index }}">Copy</button>
         </div>
     </div>
     {% endfor %}
@@ -17,7 +18,35 @@
 <p><a href="{{ url_for('download_file', filename=word) }}"><i class="fas fa-file-word"></i> Download Word</a></p>
 <p><a href="{{ url_for('download_file', filename=pdf) }}"><i class="fas fa-file-pdf"></i> Download PDF</a></p>
 
+<!-- Add JavaScript for copying -->
 <script>
+    document.querySelectorAll('.copy-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const page = this.getAttribute('data-page');
+            const content = document.getElementById(`page-content-${page}`).textContent;
+
+            navigator.clipboard.writeText(content).then(() => {
+                showCopyAlert('Content copied successfully!');
+            }).catch(err => {
+                showCopyAlert('Failed to copy content.', 'error');
+            });
+        });
+    });
+
+    function showCopyAlert(message, type = 'success') {
+        const alertBox = document.createElement('div');
+        alertBox.className = `alert alert-${type}`;
+        alertBox.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+        document.body.appendChild(alertBox);
+
+        setTimeout(() => {
+            alertBox.style.opacity = '0';
+            setTimeout(() => {
+                alertBox.remove();
+            }, 600); // Wait for the fade-out transition
+        }, 3000); // Display for 3 seconds
+    }
+
     const collapsibles = document.querySelectorAll(".collapsible");
 
     collapsibles.forEach((collapsible) => {

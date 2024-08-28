@@ -26,6 +26,37 @@
         {% endwith %}
         {% block content %}{% endblock %}
     </div>
+
+    <script>
+        // Automatically fade out and remove flash messages
+        document.addEventListener("DOMContentLoaded", function () {
+            const flashMessages = document.querySelectorAll('.alert');
+            flashMessages.forEach(function (message) {
+                setTimeout(() => {
+                    message.style.opacity = '0';
+                    setTimeout(() => {
+                        message.remove();
+                    }, 600); // Wait for the fade-out transition
+                }, 3000); // Display for 3 seconds
+            });
+        });
+
+        // Function to show custom copy alert
+        function showCopyAlert(message, type = 'success') {
+            const alertBox = document.createElement('div');
+            alertBox.className = `alert alert-${type}`;
+            alertBox.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            document.body.appendChild(alertBox);
+
+            setTimeout(() => {
+                alertBox.style.opacity = '0';
+                setTimeout(() => {
+                    alertBox.remove();
+                }, 600); // Wait for the fade-out transition
+            }, 3000); // Display for 3 seconds
+        }
+    </script>
+
 </body>
 
 </html>
